@@ -5,7 +5,7 @@ import replicate
 st.set_page_config(page_title="🦙💬 Llama 2 Chatbot")
 
 # Replicate Credentials
-replicate_api = st.text_input('Enter Replicate API token:', type='password')
+replicate_api = st.sidebar.text_input('Enter Replicate API token:', type='password')
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
@@ -15,10 +15,6 @@ if "messages" not in st.session_state.keys():
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
-
-def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "How may I assist you today?"}]
-st.sidebar.button('Clear Chat History', on_click=clear_chat_history)
 
 # Function for generating LLaMA2 response
 # Refactored from https://github.com/a16z-infra/llama2-chatbot
