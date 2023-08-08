@@ -13,7 +13,6 @@ with st.sidebar:
     else:
         st.success('Proceed to entering your prompt message!', icon='👉')
     st.markdown('📖 Learn how to build this app in this [blog](https://blog.streamlit.io/how-to-build-a-llama-2-chatbot/)!')
-os.environ['REPLICATE_API_TOKEN'] = replicate_api
 
 # Store LLM generated responses
 if "messages" not in st.session_state.keys():
